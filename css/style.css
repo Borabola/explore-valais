@@ -1,14 +1,28 @@
 /*
   1. Use a more-intuitive box-sizing model.
 */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-  }
-  
-  /*
+}
+
+/*
     2. Remove default margin
   */
-  * {
+* {
     margin: 0;
     font-family: Alexandria, sans-serif;
-  }
+}
+
+h1 {
+    font-size: 20px;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 24px;
+    }
+
+    @media only screen and (min-width: 1024px) {
+        font-size: 28px;
+    }
+}
