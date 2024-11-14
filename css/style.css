@@ -312,6 +312,16 @@ footer {
     background-color: var(--primary-color); /* change and delete this comment*/
 }
 
+
+#map { 
+    position: absolute;
+    width: 80%;
+    height: 700px;
+    left: 50px;
+    top: 200px
+    
+ }
+
 h1 {
     font-size: 20px;
 
