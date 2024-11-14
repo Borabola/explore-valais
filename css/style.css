@@ -302,6 +302,7 @@ body {
 }
 
 main {
+    position: relative;
     flex-grow: 1;
 }
 
@@ -316,10 +317,9 @@ footer {
 #map { 
     position: absolute;
     width: 80%;
-    height: 700px;
+    height: 500px;
     left: 50px;
-    top: 200px
-    
+    bottom: 0 
  }
 
 h1 {
