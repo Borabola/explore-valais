@@ -15,6 +15,16 @@
     font-family: Alexandria, sans-serif;
 }
 
+
+#map { 
+    position: absolute;
+    width: 80%;
+    height: 700px;
+    left: 50px;
+    top: 200px
+    
+ }
+
 h1 {
     font-size: 20px;
 
