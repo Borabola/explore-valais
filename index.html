@@ -11,14 +11,30 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
 </head>
 <body>
-    <header>
+    <!-- <header>
         <h1 class="wow bounceInUp">YOUR GUIDE TO EXPLORE VALAIS</h1>
-    </header>
+    </header> -->
     <main>
-        <div class="map-content">
-            <div id="map"></div>
+        <section class="wrapper hero">
+            <img src="./images/valais-matt.png" alt="Valais" width="100">
+            <h1>Welcome to Your Guide to Explore Valais!</h1>
+        </section>
+        <section class="wrapper intro">
+            <h2>What would you like to do?</h2>
+        </section>
+        <section class="btn-container">
+            <button>Go Ski</button>
+            <button>Go Hiking</button>
+            <button>Go Spa</button>
+        </section>
+        <div class="content-container">
+            <section class="test-block hiking" style="background-color: rgba(0, 255, 255, 0.3);"></section>
+            <section class="test-block ski" style="background-color: rgba(255, 0, 255, 0.3);"></section>
+            <section class="test-block spa " style="background-color: rgba(255, 255, 0, 0.3);"></section>
         </div>
-       
+        <section class="map-content">
+            <div id="map"></div>
+        </section>
     </main>
     <footer>
         <script src="js/map.js"></script>
