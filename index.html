@@ -7,24 +7,27 @@
     <title>Explore Valais</title>
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css"  />
-    <link href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans"
+    rel="stylesheet"/>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    <link
+    href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css"
+    rel="stylesheet"/>
 </head>
 <body>
     <header>
         <h1 class="wow bounceInUp">YOUR GUIDE TO EXPLORE VALAIS</h1>
     </header>
     <main>
-        <div class="map-content">
-            <div id="map"></div>
-        </div>
-       
+        <div id="map"></div>
     </main>
     <footer>
-        <script src="js/map.js"></script>
         <script src="js/wow.min.js"></script>
+        <script src="js/map.js"></script>
         <script>
             new WOW().init();
         </script>  
+        
 </body>
 </html>

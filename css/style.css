@@ -313,14 +313,39 @@ footer {
     background-color: var(--primary-color); /* change and delete this comment*/
 }
 
+/*----------- map style --------------*/
 
 #map { 
-    position: absolute;
-    width: 80%;
+    width: 50%;
     height: 500px;
-    left: 50px;
-    bottom: 0 
+    margin: 30px auto;
  }
+
+.marker {
+    background-image: url(/images/flag_11259067.png);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+
+  
+
+
+
+
+
+
 
 h1 {
     font-size: 20px;
