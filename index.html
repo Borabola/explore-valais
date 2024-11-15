@@ -7,100 +7,121 @@
     <title>Explore Valais</title>
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css"  />
-    <link href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans"
+    rel="stylesheet"/>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    <link
+    href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css"
+    rel="stylesheet"/>
 </head>
 <body>
-    <header>
+    <!-- <header>
         <h1 class="wow bounceInUp">YOUR GUIDE TO EXPLORE VALAIS</h1>
-    </header>
+    </header> -->
     <main>
-        <div class="map-content">
+        <section class="wrapper hero">
+            <img src="./images/valais-matt.png" alt="Valais" width="100">
+            <h1>Welcome to Your Guide to Explore Valais!</h1>
+        </section>
+        <section class="wrapper intro">
+            <h2>What would you like to do?</h2>
+        </section>
+        <section class="btn-container">
+            <button>Go Ski</button>
+            <button>Go Hiking</button>
+            <button>Go Spa</button>
+        </section>
+
+        <div class="content-container wrapper">
+            <!-- Home Page Section -->
+            <section id="home" class="content-block">
+                <h2>Welcome to Your Guide to Explore Valais!</h2>
+                <p>What would you like to do?</p>
+                <ul>
+                    <li>
+                        <a href="#ski" class="wow fadeIn">Ski</a>
+                        <p>Dive into the exhilarating slopes of Valais, where powdery snow and stunning Alpine vistas await. Whether you’re a seasoned pro or a beginner, our top resorts offer an unforgettable experience.</p>
+                    </li>
+                    <li>
+                        <a href="#spa" class="wow fadeIn">Spa</a>
+                        <p>Unwind and rejuvenate in Valais’ luxurious spas. From natural thermal springs to modern wellness centers, immerse yourself in tranquility and pampering.</p>
+                    </li>
+                    <li>
+                        <a href="#hiking" class="wow fadeIn">Hiking Routes</a>
+                        <p>Explore the breathtaking trails of Valais. From gentle walks through picturesque vineyards to challenging mountain ascents, there’s a path for every adventurer.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Ski Section -->
+            <section id="ski" class="content-block ski">
+                <h2>Ski Resorts</h2>
+                <ul>
+                    <li>
+                        <h3>Verbier</h3>
+                        <p>Renowned for its extensive slopes and vibrant après-ski scene, Verbier offers a range of runs for all levels. <a href="#">Explore Verbier</a> and book your stay through our integrated booking system.</p>
+                    </li>
+                    <li>
+                        <h3>Crans-Montana</h3>
+                        <p>Offering panoramic views and sun-soaked slopes, Crans-Montana is perfect for families and expert skiers alike. <a href="#">Discover Crans-Montana</a> and secure your ski pass with our easy booking option.</p>
+                    </li>
+                    <li>
+                        <h3>Zermatt</h3>
+                        <p>Home to the iconic Matterhorn, Zermatt boasts world-class skiing and charming village life. <a href="#">Visit Zermatt</a> and plan your adventure with our direct booking feature.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Spa Section -->
+            <section id="spa" class="content-block spa ">
+                <h2>Spa Options</h2>
+                <ul>
+                    <li>
+                        <h3>Ovronnaz</h3>
+                        <p>Nestled in the mountains, Ovronnaz offers a tranquil spa experience with natural thermal waters. <a href="#">Relax in Ovronnaz</a> and reserve your spa day online.</p>
+                    </li>
+                    <li>
+                        <h3>Leukerbad</h3>
+                        <p>Famous for its vast thermal baths, Leukerbad is the perfect destination for rejuvenation. <a href="#">Experience Leukerbad</a> and book your thermal retreat through our site.</p>
+                    </li>
+                    <li>
+                        <h3>Saillon</h3>
+                        <p>Known for its peaceful ambiance and therapeutic waters, Saillon offers a serene spa experience. <a href="#">Unwind in Saillon</a>.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Hiking Section -->
+            <section id="hiking" class="content-block hiking">
+                <h2>Hiking Routes</h2>
+                <ul>
+                    <li>
+                        <h3>Aletsch Glacier Trail</h3>
+                        <p>Embark on a breathtaking hike along the largest glacier in the Alps. <a href="#">Discover the Aletsch Glacier</a> and book guided tours through our platform.</p>
+                    </li>
+                    <li>
+                        <h3>Val de Réchy</h3>
+                        <p>Explore the serene beauty of Val de Réchy, a hidden gem with lush landscapes and diverse wildlife. <a href="#">Experience Val de Réchy</a> and reserve your hiking adventure with us.</p>
+                    </li>
+                    <li>
+                        <h3>Bisse du Rô</h3>
+                        <p>Wander along the historic Bisse du Rô, a scenic irrigation channel offering stunning views of the Valais region. <a href="#">Explore Bisse du Rô</a> and arrange your hike through our booking system.</p>
+                    </li>
+                </ul>
+            </section>
+    </div>
+        <section class="map-content">
             <div id="map"></div>
-        </div>
-
-        <!-- Home Page Section -->
-        <section id="home">
-            <h2>Welcome to Your Guide to Explore Valais!</h2>
-            <p>What would you like to do?</p>
-            <ul>
-                <li>
-                    <a href="#ski" class="wow fadeIn">Ski</a>
-                    <p>Dive into the exhilarating slopes of Valais, where powdery snow and stunning Alpine vistas await. Whether you’re a seasoned pro or a beginner, our top resorts offer an unforgettable experience.</p>
-                </li>
-                <li>
-                    <a href="#spa" class="wow fadeIn">Spa</a>
-                    <p>Unwind and rejuvenate in Valais’ luxurious spas. From natural thermal springs to modern wellness centers, immerse yourself in tranquility and pampering.</p>
-                </li>
-                <li>
-                    <a href="#hiking" class="wow fadeIn">Hiking Routes</a>
-                    <p>Explore the breathtaking trails of Valais. From gentle walks through picturesque vineyards to challenging mountain ascents, there’s a path for every adventurer.</p>
-                </li>
-            </ul>
         </section>
-
-        <!-- Ski Section -->
-        <section id="ski">
-            <h2>Ski Resorts</h2>
-            <ul>
-                <li>
-                    <h3>Verbier</h3>
-                    <p>Renowned for its extensive slopes and vibrant après-ski scene, Verbier offers a range of runs for all levels. <a href="#">Explore Verbier</a> and book your stay through our integrated booking system.</p>
-                </li>
-                <li>
-                    <h3>Crans-Montana</h3>
-                    <p>Offering panoramic views and sun-soaked slopes, Crans-Montana is perfect for families and expert skiers alike. <a href="#">Discover Crans-Montana</a> and secure your ski pass with our easy booking option.</p>
-                </li>
-                <li>
-                    <h3>Zermatt</h3>
-                    <p>Home to the iconic Matterhorn, Zermatt boasts world-class skiing and charming village life. <a href="#">Visit Zermatt</a> and plan your adventure with our direct booking feature.</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Spa Section -->
-        <section id="spa">
-            <h2>Spa Options</h2>
-            <ul>
-                <li>
-                    <h3>Ovronnaz</h3>
-                    <p>Nestled in the mountains, Ovronnaz offers a tranquil spa experience with natural thermal waters. <a href="#">Relax in Ovronnaz</a> and reserve your spa day online.</p>
-                </li>
-                <li>
-                    <h3>Leukerbad</h3>
-                    <p>Famous for its vast thermal baths, Leukerbad is the perfect destination for rejuvenation. <a href="#">Experience Leukerbad</a> and book your thermal retreat through our site.</p>
-                </li>
-                <li>
-                    <h3>Saillon</h3>
-                    <p>Known for its peaceful ambiance and therapeutic waters, Saillon offers a serene spa experience. <a href="#">Unwind in Saillon</a>.</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Hiking Section -->
-        <section id="hiking">
-            <h2>Hiking Routes</h2>
-            <ul>
-                <li>
-                    <h3>Aletsch Glacier Trail</h3>
-                    <p>Embark on a breathtaking hike along the largest glacier in the Alps. <a href="#">Discover the Aletsch Glacier</a> and book guided tours through our platform.</p>
-                </li>
-                <li>
-                    <h3>Val de Réchy</h3>
-                    <p>Explore the serene beauty of Val de Réchy, a hidden gem with lush landscapes and diverse wildlife. <a href="#">Experience Val de Réchy</a> and reserve your hiking adventure with us.</p>
-                </li>
-                <li>
-                    <h3>Bisse du Rô</h3>
-                    <p>Wander along the historic Bisse du Rô, a scenic irrigation channel offering stunning views of the Valais region. <a href="#">Explore Bisse du Rô</a> and arrange your hike through our booking system.</p>
-                </li>
-            </ul>
-        </section>
+    
     </main>
     <footer>
-        <script src="js/map.js"></script>
         <script src="js/wow.min.js"></script>
+        <script src="js/map.js"></script>
         <script>
             new WOW().init();
         </script>  
+        
 </body>
 </html>
