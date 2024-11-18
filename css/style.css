@@ -452,12 +452,13 @@ h2 {
     z-index: 20;
 }
 
-.btn-container  button {
+.main-nav {
     padding: 10px 20px;
     min-width: 250px;
     font-size: 20px;
     color: white;
     background-color: var(--primary-color);
+    text-decoration: none;
     border: none;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
