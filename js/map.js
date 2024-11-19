@@ -160,10 +160,11 @@ function addMarker(feature) {
      new mapboxgl.Popup({ offset: 25 })
     .setHTML(
       `<h3 class="map-title">${feature.properties.title}</h3>
-      <p>${feature.properties.description}</p>
+      
       <a class="map-a" target="_blank" href="https://www.google.com/search?q=${feature.properties.title}">
         <img class="img-content" src="${feature.properties.image}">
-      </a>`
+      </a>` 
+      // <p>${feature.properties.description}</p>
     )
 )
 .addTo(map);

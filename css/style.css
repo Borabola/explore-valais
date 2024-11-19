@@ -390,7 +390,7 @@ h4 {
 
 .mapboxgl-popup {
     max-width: 200px;
-
+  
 }
 
 .mapboxgl-popup-content {
@@ -403,10 +403,19 @@ h4 {
 .map-title {
     font-size: 1.5rem;
     padding: 5px;
+    color: #e8403d;
+    margin-bottom: 5px;
 }
 
 .img-content {
-    border-radius: 10%;
+    border-radius: 5%;
+    width: 200px;
+    height: 200px;
+
+}
+
+.mapboxgl-popup-close-button {
+    font-size: 1.5rem;
 }
 
 /* -------------   map style  end ---------- */
