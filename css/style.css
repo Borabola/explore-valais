@@ -557,3 +557,58 @@ h4 {
 .accordion-wrapper {
     margin-left: 100px;
 }
+
+/* Slider code starts here */
+@keyframes sliderShow {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+  }
+  
+  /* The element to apply the animation to */
+.slider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+  }
+
+.pictures {
+    display: flex;
+    justify-content: space-between;
+
+    height: 300px;
+    background-color: red;
+    animation-name: sliderShow;
+    animation-duration: 4s;
+  }
+
+  .button {
+    width: 100%;
+    display: flex;
+    position: absolute;
+
+    justify-content: space-between;
+  }
+.button button {
+    font-size: 50px;
+    border: none;
+    background-color: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.button button:hover {
+    color: #fd8e8e;
+}
+
+.button button:active {
+    color: #140d0d;
+}
+
+
+/* Slider code ends here */
