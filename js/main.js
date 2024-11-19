@@ -87,3 +87,11 @@ const initAccordion = () => {
 };
 
 initAccordion();
+const images = document.getElementsByClassName("pictures");
+
+// slider animation starts here
+document.getElementById("button-left").addEventListener("click", function() {
+    images[1].style.display = "none";
+});
+// slider animation ends here
+
