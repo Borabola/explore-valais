@@ -315,7 +315,8 @@ footer {
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    background-color: var(--primary-color); /* change and delete this comment*/
+    background-color: var(--primary-color);
+    /* change and delete this comment*/
 }
 
 h1 {
@@ -546,7 +547,7 @@ h4 {
     justify-content: space-between;
     padding: 10px;
     font-size: 20px;
-    
+
     cursor: pointer;
 }
 
@@ -621,3 +622,15 @@ h4 {
 
 
 /* Slider code ends here */
+
+.sticky-block {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 40px;
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 160px;
+    }
+}
