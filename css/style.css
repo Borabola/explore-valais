@@ -640,6 +640,13 @@ h4 {
     } 
 }
 
+
+.sticky-block:nth-child(even) .sticky-block__wrapper {
+    @media only screen and (min-width: 768px) {
+        margin: 0  0  0 80px;
+    }
+}
+
 .sticky-block__main {
     position: relative;
     display: flex;
@@ -677,12 +684,6 @@ h4 {
         width: calc(41% - 80px);
         margin: 0 80px 0 0;
         padding: 0;
-    }
-}
-
-.sticky-block__wrapper--left {
-    @media only screen and (min-width: 768px) {
-        margin: 0  0  0 80px;
     }
 }
 
