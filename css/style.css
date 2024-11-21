@@ -569,27 +569,25 @@ h4 {
 }
 
 /* Slider code starts here */
-@keyframes sliderShow {
+@keyframes sliderShow {}
 
-}
-  
-  /* The element to apply the animation to */
+/* The element to apply the animation to */
 .slider-container {
     width: 100%;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-  }
+}
 
 .slider-pictures {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    
+
     animation-name: sliderShow;
     animation-duration: 4s;
-  }
+}
 
 .slider-pictures.sliding-transition {
     transition: transform 0.5s ease-in-out;
@@ -666,16 +664,27 @@ h4 {
 }
 
 .sticky-block__wrapper {
-    width: calc(41% - 80px);
-    margin: 0 80px 0 0;
+    width: 100%;
+    padding: 0 20px;
+
+    @media only screen and (min-width: 768px) {
+        width: calc(41% - 80px);
+        margin: 0 80px 0 0;
+        padding: 0;
+    }
 }
 
 .sticky-block__add {
     position: relative;
+    width: 100%;
+    /* flex-wrap: wrap; */
     list-style: none;
-    flex-direction: column;
     margin: 0;
     padding: 0;
+
+    @media only screen and (min-width: 768px) {
+        flex-direction: column;
+    }
 }
 
 .sticky-block__add-title {
@@ -688,7 +697,8 @@ h4 {
 
 .sticky-block__add-item {
     margin: 40px 0;
-    /* flex-shrink: unset; */
+    width: 100%;
+    flex-shrink: 0;
 }
 
 .sticky-block__add-img {
@@ -707,12 +717,9 @@ h4 {
     margin: 0;
 }
 
-.swiper-container {
-    /* margin-left: auto;
-    margin-right: auto; */
-    position: relative;
-    overflow: hidden;
-    list-style: none;
-    padding: 0;
-    z-index: 1;
+.sticky-block__wrapper .button {
+    width: calc(100% - 40px);
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }
 }
