@@ -570,48 +570,35 @@ h4 {
 
 /* Slider code starts here */
 @keyframes sliderShow {
-    0% {
-        background-color: red;
-    }
 
-    25% {
-        background-color: yellow;
-    }
-
-    50% {
-        background-color: blue;
-    }
-
-    100% {
-        background-color: green;
-    }
 }
-
-/* The element to apply the animation to */
-.slider {
+  
+  /* The element to apply the animation to */
+.slider-container {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-}
+    position: relative;
+    overflow: hidden;
+  }
 
-.pictures {
+.slider-pictures {
     display: flex;
     justify-content: space-between;
-
-    height: 300px;
-    background-color: red;
+    gap: 20px;
+    
     animation-name: sliderShow;
     animation-duration: 4s;
+  }
+
+.slider-pictures.sliding-transition {
+    transition: transform 0.5s ease-in-out;
 }
 
 .button {
     width: 100%;
     display: flex;
     position: absolute;
-
     justify-content: space-between;
 }
 

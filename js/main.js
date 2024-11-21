@@ -87,11 +87,44 @@ const initAccordion = () => {
 };
 
 initAccordion();
-const images = document.getElementsByClassName("pictures");
 
 // slider animation starts here
-document.getElementById("button-left").addEventListener("click", function() {
-    images[1].style.display = "none";
+const sliderPictures = document.querySelector(".slider-pictures");
+const buttonLeft = document.getElementById("button-left");
+const buttonRight = document.getElementById("button-right");
+
+let currentIndex = 0;
+let prevIndex;
+const pictures = document.querySelectorAll(".slider-picture");
+
+const totalPictures = Object.keys(pictures).length;
+
+const imageWidth = 520;
+
+buttonRight.addEventListener("click", () => {
+    sliderPictures.classList.add("sliding-transition");
+    prevIndex = currentIndex;
+    currentIndex = (currentIndex + 1) % totalPictures;
+    sliderPictures.transform = `translateX(-${imageWidth}px)`;
+    setTimeout(() => {
+        sliderPictures.appendChild(pictures[prevIndex]);
+        sliderPictures.classList.remove("sliding-transition");
+        sliderPictures.style.transform = "";
+    }, 500);
+});
+
+buttonLeft.addEventListener("click", () => {
+    prevIndex = currentIndex;
+    currentIndex = (currentIndex - 1 + totalPictures) % totalPictures;
+    sliderPictures.transform = `translateX(-${imageWidth}px)`;
+    sliderPictures.insertBefore(pictures[currentIndex], sliderPictures.firstChild);
+    setTimeout(() => {
+        sliderPictures.style.transform = "";
+        sliderPictures.classList.add("sliding-transition");
+    }, 10);
+    setTimeout(() => {
+        sliderPictures.classList.remove("sliding-transition");
+    }, 490);
 });
 // slider animation ends here
 
