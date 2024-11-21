@@ -391,7 +391,7 @@ h4 {
 
 .mapboxgl-popup {
     max-width: 200px;
-  
+
 }
 
 .mapboxgl-popup-content {
@@ -570,13 +570,24 @@ h4 {
 
 /* Slider code starts here */
 @keyframes sliderShow {
-    0%   {background-color: red;}
-    25%  {background-color: yellow;}
-    50%  {background-color: blue;}
-    100% {background-color: green;}
-  }
-  
-  /* The element to apply the animation to */
+    0% {
+        background-color: red;
+    }
+
+    25% {
+        background-color: yellow;
+    }
+
+    50% {
+        background-color: blue;
+    }
+
+    100% {
+        background-color: green;
+    }
+}
+
+/* The element to apply the animation to */
 .slider {
     width: 100%;
     display: flex;
@@ -584,7 +595,7 @@ h4 {
     justify-content: center;
     background-size: cover;
     background-position: center;
-  }
+}
 
 .pictures {
     display: flex;
@@ -594,15 +605,16 @@ h4 {
     background-color: red;
     animation-name: sliderShow;
     animation-duration: 4s;
-  }
+}
 
-  .button {
+.button {
     width: 100%;
     display: flex;
     position: absolute;
 
     justify-content: space-between;
-  }
+}
+
 .button button {
     font-size: 50px;
     border: none;
@@ -624,13 +636,96 @@ h4 {
 /* Slider code ends here */
 
 .sticky-block {
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     margin-bottom: 40px;
 
     @media only screen and (min-width: 768px) {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         margin-bottom: 160px;
     }
+}
+
+.sticky-block__main {
+    position: relative;
+    width: 100%;
+    height: 671px;
+    margin-bottom: 24px;
+
+    @media only screen and (min-width: 768px) {
+        width: 50%;
+        height: 100vh;
+        position: relative;
+        position: sticky;
+        top: 0;
+        display: flex;
+    }
+}
+
+.sticky-block__main-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.sticky-block__main-img img,
+.sticky-block__add-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sticky-block__wrapper {
+    width: calc(41% - 80px);
+    margin: 0 80px 0 0;
+}
+
+.sticky-block__add {
+    position: relative;
+    list-style: none;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.sticky-block__add-title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 32px;
+    color: #222;
+    margin: 0 0 24px;
+}
+
+.sticky-block__add-item {
+    margin: 40px 0;
+    /* flex-shrink: unset; */
+}
+
+.sticky-block__add-img {
+    width: 100%;
+    height: 350px;
+    margin-bottom: 24px;
+}
+
+.sticky-block__add-img img {
+    max-height: 100%;
+}
+
+.sticky-block__add-text {
+    font-size: 24px;
+    line-height: 32px;
+    margin: 0;
+}
+
+.swiper-container {
+    /* margin-left: auto;
+    margin-right: auto; */
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
 }
