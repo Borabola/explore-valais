@@ -17,11 +17,13 @@ const sliderPicturesList = document.querySelectorAll(".slider-pictures");
 sliderPicturesList.forEach((sliderPictures) => {
     const buttonLeft = sliderPictures.nextElementSibling.querySelector(".button-left");
     const buttonRight = sliderPictures.nextElementSibling.querySelector(".button-right");
-    const slideWidth = sliderPictures?.querySelector(".slider-picture")?.offsetWidth + 20;
+    let slideWidth = sliderPictures?.querySelector(".slider-picture")?.offsetWidth + 20;
     const totalPictures = sliderPictures.children.length;
 
     let currentIndex = 0;
     let prevIndex;
+
+    window.addEventListener("resize", () => slideWidth = sliderPictures?.querySelector(".slider-picture")?.offsetWidth + 20);
 
     buttonRight.addEventListener("click", () => {
         sliderPictures.classList.add("sliding-transition");
@@ -40,3 +42,21 @@ sliderPicturesList.forEach((sliderPictures) => {
 
 // slider animation ends here
 
+// svg settings starts here
+const svg = document.querySelector("svg.squiggle");
+const path = svg.querySelector("path");
+
+const scroll = () => {
+    const distance = window.scrollY;
+    const totalDistance = svg.clientHeight - window.innerHeight;
+
+    const percentage = distance / totalDistance;
+
+    const pathLength = path.getTotalLength();
+
+    path.style.strokeDasharray = `${pathLength}`;
+    path.style.strokeDashoffset = `${pathLength * (1 - percentage)}`;
+};
+scroll();
+window.addEventListener("scroll", scroll);
+// svg settings ends here

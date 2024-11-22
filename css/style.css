@@ -799,3 +799,19 @@ h4 {
         font-size: 32px;
     }
 }
+
+/* svg settings starts here */
+svg.squiggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 600vh;
+    z-index: -1;
+}
+
+svg.squiggle path {
+
+    stroke-width: 1%;
+}
+/* svg settings ends here */
