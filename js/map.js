@@ -199,24 +199,46 @@ map.on('load', function() {
  
 // add markers to map
 function addMarker(feature) {
-    const el = document.createElement('div');
-    el.className = 'marker';
+  const el = document.createElement('div');
+  el.className = 'marker';
 
-    new mapboxgl.Marker(el)
-    .setLngLat(feature.geometry.coordinates)
-     .setPopup(
-     new mapboxgl.Popup({ offset: 25 })
-    .setHTML(
-      `<h3 class="map-title">${feature.properties.title}</h3>
+  const marker = new mapboxgl.Marker(el)
+      .setLngLat(feature.geometry.coordinates)
+      .setPopup(
+          new mapboxgl.Popup({ offset: 25 })
+          .setHTML(
+              `<h3 class="map-title" >${feature.properties.title}</h3>
+              <a class="map-a" target="_blank" href="https://www.google.com/search?q=${feature.properties.title}">
+                <img class="img-content" src="${feature.properties.image}" >
+              </a>`
+          )
+      )
+      .addTo(map);
+
+      const card = document.getElementById('weather-card');
+
+      el.addEventListener('click', async () => {
+        const lat = feature.geometry.coordinates[1];
+        const lon = feature.geometry.coordinates[0];
+        const apiKey = "9d9a675927f38801a9f5c438b11b1c3b";
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=en&appid=${apiKey}`;
       
-      <a class="map-a" target="_blank" href="https://www.google.com/search?q=${feature.properties.title}">
-        <img class="img-content" src="${feature.properties.image}">
-      </a>` 
-      // <p>${feature.properties.description}</p>
-    )
-)
-.addTo(map);
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error("Failed to fetch data!");
+          const data = await response.json();
+      
+          // Update weather card
+          card.style.display = "block";
+          document.getElementById("card-location").textContent = `Location: ${feature.properties.title}`;
+          document.getElementById("card-temperature").textContent = `Temperature: ${data.main.temp}°C`;
+          document.getElementById("card-description").textContent = `Condition: ${data.weather[0].description}`;
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      });
 }
 
 // Adding markers from the geojson data
 geojson.features.forEach(addMarker);
+
