@@ -349,7 +349,6 @@ h4 {
 
 .mapboxgl-popup {
     max-width: 200px;
-
 }
 
 .mapboxgl-popup-content {
@@ -369,7 +368,6 @@ h4 {
     border-radius: 5%;
     width: 200px;
     height: 200px;
-
 }
 
 .mapboxgl-popup-close-button {
