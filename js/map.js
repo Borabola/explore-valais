@@ -112,7 +112,55 @@ const geojson = {
           'description': "It is an untamed natural valley.",
           'image': 'https://www.travelita.ch/wp-content/uploads/2021/07/15-Val-de-Rechy-Panorama-1200x800.jpg'
         }
-      }
+      },
+      {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [7.4019, 46.2969]
+        },
+        'properties': {
+          'title': 'Anzère',
+          'description': " A south-facing purpose-built resort in traditional Swiss architectural style.",
+          'image': 'https://media.myswitzerland.com/image/fetch/w_1920,h_800,c_limit,f_auto,q_auto,e_sharpen:50/https%3A%2F%2Fwww.myswitzerland.com%2F-%2Fmedia%2Fst%2Fgadmin%2Fimages%2Flandscapes%2Fwinter%2Fmountains%2F_mg_5945_28428.jpg'
+        }
+      },
+      {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [7.01211, 46.2213052]
+        },
+        'properties': {
+          'title': 'Bains de Lavey Thermal Spa',
+          'description': "A thermal spa",
+          'image': 'https://media.myswitzerland.com/image/fetch/w_1920,h_800,c_limit,f_auto,q_auto,e_sharpen:50/https%3A%2F%2Fwww.myswitzerland.com%2F-%2Fmedia%2Fst%2Fgadmin%2Fimages%2Faccommodation%2Fhotels%2Fhotels%2F0702_38074.jpg'
+        }
+      },
+      {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [8.21, 46.36]
+        },
+        'properties': {
+          'title': 'Binntal Landscape Park',
+          'description': "Vast natural area dotted with mountain villages & rocky peaks connected by hiking & snowshoe trails.",
+          'image': 'https://images.ctfassets.net/ukaa6ik2569a/3yzw2wahhZuYPAB8dTGLf5/d2ba73bd7449d16c767e26b71159e64a/activity-naturparks_binntal_1.jpg?f=center&w=1920&h=1280&fm=webp&q=80&fit=fill'
+        }
+      },
+      {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [7.8237, 46.2777]
+        },
+        'properties': {
+          'title': 'Moosalpregion',
+          'description': "It is an untamed natural valley.",
+          'image': 'https://media.myswitzerland.com/image/fetch/w_1920,h_800,c_limit,f_auto,q_auto,e_sharpen:50/https%3A%2F%2Fwww.myswitzerland.com%2F-%2Fmedia%2Fdam%2Fresources%2Fplaces%2Fm%2Fo%2Fmoosalp%20region%2Fimages%20winter%2F51931_32001800.jpeg'
+        }
+      },
     ]
   };
 
@@ -151,24 +199,46 @@ map.on('load', function() {
  
 // add markers to map
 function addMarker(feature) {
-    const el = document.createElement('div');
-    el.className = 'marker';
+  const el = document.createElement('div');
+  el.className = 'marker';
 
-    new mapboxgl.Marker(el)
-    .setLngLat(feature.geometry.coordinates)
-     .setPopup(
-     new mapboxgl.Popup({ offset: 25 })
-    .setHTML(
-      `<h3 class="map-title">${feature.properties.title}</h3>
+  const marker = new mapboxgl.Marker(el)
+      .setLngLat(feature.geometry.coordinates)
+      .setPopup(
+          new mapboxgl.Popup({ offset: 25 })
+          .setHTML(
+              `<h3 class="map-title" >${feature.properties.title}</h3>
+              <a class="map-a" target="_blank" href="https://www.google.com/search?q=${feature.properties.title}">
+                <img class="img-content" src="${feature.properties.image}" >
+              </a>`
+          )
+      )
+      .addTo(map);
+
+      const card = document.getElementById('weather-card');
+
+      el.addEventListener('click', async () => {
+        const lat = feature.geometry.coordinates[1];
+        const lon = feature.geometry.coordinates[0];
+        const apiKey = "9d9a675927f38801a9f5c438b11b1c3b";
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=en&appid=${apiKey}`;
       
-      <a class="map-a" target="_blank" href="https://www.google.com/search?q=${feature.properties.title}">
-        <img class="img-content" src="${feature.properties.image}">
-      </a>` 
-      // <p>${feature.properties.description}</p>
-    )
-)
-.addTo(map);
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error("Failed to fetch data!");
+          const data = await response.json();
+      
+          // Update weather card
+          card.style.display = "block";
+          document.getElementById("card-location").textContent = `Location: ${feature.properties.title}`;
+          document.getElementById("card-temperature").textContent = `Temperature: ${data.main.temp}°C`;
+          document.getElementById("card-description").textContent = `Condition: ${data.weather[0].description}`;
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      });
 }
 
 // Adding markers from the geojson data
 geojson.features.forEach(addMarker);
+
