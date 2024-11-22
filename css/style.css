@@ -4,7 +4,6 @@
     --base-color: #f9f9f9;
     --primary-color: #e8403d;
     --secondary-color: #224932;
-    --light-color: #d7ab3f;
 }
 
 /*stylelint-disable*/
@@ -139,33 +138,11 @@ table {
 }
 
 /**
- * Add the correct display in IE 9-.
- */
-audio,
-video {
-    display: inline-block;
-}
-
-/**
  * Add the correct display in iOS 4-7.
  */
 audio:not([controls]) {
     display: none;
     height: 0;
-}
-
-/**
- * Remove the border on images inside links in IE 10-.
- */
-img {
-    border-style: none;
-}
-
-/**
- * Hide the overflow in IE.
- */
-svg:not(:root) {
-    overflow: hidden;
 }
 
 /* Forms
@@ -190,7 +167,6 @@ textarea {
 }
 
 /**
- * Show the overflow in IE.
  * 1. Show the overflow in Edge.
  */
 button,
@@ -260,25 +236,6 @@ picture {
     line-height: 0;
 }
 
-.visually-hidden:not(:focus):not(:active),
-.visually-hidden {
-    position: absolute;
-
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-
-    white-space: nowrap;
-
-    -webkit-clip-path: inset(100%);
-
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-}
-
 *,
 *::before,
 *::after {
@@ -316,7 +273,6 @@ footer {
     justify-content: center;
     color: #ffffff;
     background-color: var(--primary-color);
-    /* change and delete this comment*/
 }
 
 h1 {
@@ -358,20 +314,25 @@ h4 {
 }
 
 /* -------------   map style  start ---------- */
-
 .map-content {
     position: relative;
     width: 100%;
     min-height: 400px;
-}
 
+    @media only screen and (min-width: 768px) {
+        min-height: 500px;
+    }
+}
 
 #map {
     position: absolute;
     width: 100%;
     height: 400px;
     left: 0;
-    bottom: 0
+    bottom: 0;
+    @media only screen and (min-width: 768px) {
+        height: 500px;
+    }
 }
 
 .marker {
@@ -391,20 +352,18 @@ h4 {
 
 .mapboxgl-popup {
     max-width: 200px;
-
 }
 
 .mapboxgl-popup-content {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     border-radius: 5% !important;
-
 }
 
 .map-title {
     font-size: 1.5rem;
     padding: 5px;
-    color: #e8403d;
+    color: var(--primary-color);
     margin-bottom: 5px;
 }
 
@@ -412,18 +371,17 @@ h4 {
     border-radius: 5%;
     width: 200px;
     height: 200px;
-
 }
 
 .mapboxgl-popup-close-button {
     font-size: 1.5rem;
 }
 
-  /* Weather card styles */
-  #weather-card {
+/* Weather card styles */
+#weather-card {
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px;
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -431,24 +389,24 @@ h4 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 10;
     display: none;
-  }
-  
-  #weather-card h2 {
-    margin: 0;
+}
+
+#weather-card h2 {
+    margin-bottom: 10px;
     font-size: 18px;
-    color: #333;
-  }
-  
-  #weather-card p {
-    margin: 5px 0;
+    color: #e8403d;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+#weather-card p {
+    margin: 10px 0;
     font-size: 14px;
     color: #555;
-  }
-  
+}
 
 /* -------------   map style  end ---------- */
-
-
 .wrapper {
     width: 100%;
     padding-left: 60px;
@@ -520,14 +478,59 @@ h4 {
 
 .main-nav {
     padding: 10px 20px;
-    min-width: 250px;
+    min-width: 150px;
+    height: 45px;
+    display: flex;
+    align-items: center;
     font-size: 20px;
-    color: white;
+    color: #ffffff;
     background-color: var(--primary-color);
     text-decoration: none;
     border: none;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    transition: min-width 1s ease-in-out,
+        opacity 0.5s ease-in-out;
+}
+
+.main-nav:hover img {
+    opacity: 0.7;
+}
+
+.main-nav img {
+    max-width: 30px;
+    min-height: 15px;
+}
+
+.main-nav:first-of-type img {
+    margin-top: 3px;
+}
+
+.main-nav__img-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+}
+
+.btn-text {
+    margin-left: 20px;
+    transition: max-width 0.5s ease-in-out,
+        opacity 0.5s ease-in-out;
+}
+
+.btn-container.short-nav .main-nav {
+    min-width: 30px;
+}
+
+.btn-container.short-nav .main-nav:hover {
+    min-width: 50px;
+}
+
+.btn-container.short-nav .btn-text {
+    margin-left: 0;
+    opacity: 0;
+    max-width: 0;
 }
 
 .content-block {
@@ -545,54 +548,6 @@ h4 {
     font-size: 20px;
     line-height: 1.5;
     margin-bottom: 20px;
-}
-
-/* accortion */
-.accordion {
-    list-style: none;
-    margin: 0;
-    border-bottom: 1px solid #cdcdcd;
-    padding-bottom: 20px;
-}
-
-.accordion__content {
-    display: block;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 1;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 18px;
-    line-height: 1.25;
-    /* transition: max-height 0.3 ease; */
-    transition: all 0.5s ease-in-out;
-}
-
-.accordion-btn {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    font-size: 20px;
-
-    cursor: pointer;
-}
-
-.accordion-btn:hover h4 {
-    color: var(--primary-color);
-}
-
-.accordion-btn svg {
-    width: 30px;
-    transition: transform 200ms ease-in-out;
-}
-
-.accordion-btn.active svg {
-    transform: rotate(90deg);
-}
-
-.accordion-wrapper {
-    margin-left: 100px;
 }
 
 /* Slider code starts here */
@@ -664,13 +619,13 @@ h4 {
 .sticky-block:nth-child(even) {
     @media only screen and (min-width: 768px) {
         flex-direction: row-reverse;
-    } 
+    }
 }
 
 
 .sticky-block:nth-child(even) .sticky-block__wrapper {
     @media only screen and (min-width: 768px) {
-        margin: 0  0  0 80px;
+        margin: 0 0 0 80px;
     }
 }
 
@@ -738,6 +693,10 @@ h4 {
     margin: 40px 0;
     width: 100%;
     flex-shrink: 0;
+    
+    @media only screen and (min-width: 768px) {
+        margin-top: 0;
+    }
 }
 
 .sticky-block__add-img {
@@ -756,8 +715,24 @@ h4 {
     margin: 0;
 }
 
+.sticky-block__add-text a {
+    color: var(--primary-color);
+    box-shadow: inset 0 0 0 0 var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.sticky-block__add-text a:hover {
+    box-shadow: inset 183px 0 0 0 var(--primary-color);
+    color: #ffffff;
+}
+
 .sticky-block__wrapper .button {
     width: calc(100% - 40px);
+
     @media only screen and (min-width: 768px) {
         display: none;
     }
@@ -785,7 +760,7 @@ h4 {
     color: #ffffff;
 }
 
-.sticky-block__main-content h2 { 
+.sticky-block__main-content h2 {
     font-size: 24px;
     font-weight: 600;
     color: var(--primary-color);
@@ -799,7 +774,6 @@ h4 {
         font-size: 32px;
     }
 }
-
 /* svg settings starts here */
 svg.squiggle {
     position: absolute;

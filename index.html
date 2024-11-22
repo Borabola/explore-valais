@@ -2,85 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"  />
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     <title>Explore Valais</title>
-    <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
-    <link
-      href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css"
-      rel="stylesheet"
-    />
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
   </head>
   <body>
-    <!-- <header>
-        <h1 class="wow bounceInUp">YOUR GUIDE TO EXPLORE VALAIS</h1>
-    </header> -->
     <main>
       <section class="wrapper hero">
-        <img src="./images/valais-matt.png" alt="Valais" width="100" />
+        <img src="./images/valais-matt.png" alt="Valais" width="100"/>
         <h1>Welcome to Your Guide to Explore Valais!</h1>
       </section>
       <section class="wrapper intro">
         <h2>What would you like to do?</h2>
       </section>
-      <section class="btn-container">
-        <a href="#ski" class="main-nav">Go Ski</a>
-        <a href="#spa" class="main-nav">Go Spa</a>
-        <a href="#hiking" class="main-nav">Go Hiking</a>
-      </section>
+      <div class="btn-container">
+        <a href="#ski" class="main-nav">
+          <div class="main-nav__img-wrap">
+            <img src="./images/ski_logo.png" width="30" alt="ski logo"> 
+          </div>
+          <span class="btn-text">Ski</span>
+        </a>
+        <a href="#spa" class="main-nav">
+          <div class="main-nav__img-wrap">
+            <img src="./images/spa_logo.png" width="30" alt="spa logo"> 
+          </div>
+          <span class="btn-text">Spa</span>
+        </a>
+        <a href="#hiking" class="main-nav">
+          <div class="main-nav__img-wrap">
+            <img src="./images/hiking_logo.png" width="15" alt="hiking logo"> 
+          </div>
+          <span class="btn-text">Hiking</span>
+        </a>
+      </div>
 
-      <div class="content-container">
-        <!-- Home Page Section -->
-        <!-- <section id="home" class="content-block">
-                <h2>Welcome to Your Guide to Explore Valais!</h2>
-                <p>What would you like to do?</p>
-                <ul>
-                    <li>
-                        <a href="#ski" class="wow fadeIn">Ski</a>
-                        <p>Dive into the exhilarating slopes of Valais, where powdery snow and stunning Alpine vistas await. Whether you’re a seasoned pro or a beginner, our top resorts offer an unforgettable experience.</p>
-                    </li>
-                    <li>
-                        <a href="#spa" class="wow fadeIn">Spa</a>
-                        <p>Unwind and rejuvenate in Valais’ luxurious spas. From natural thermal springs to modern wellness centers, immerse yourself in tranquility and pampering.</p>
-                    </li>
-                    <li>
-                        <a href="#hiking" class="wow fadeIn">Hiking Routes</a>
-                        <p>Explore the breathtaking trails of Valais. From gentle walks through picturesque vineyards to challenging mountain ascents, there’s a path for every adventurer.</p>
-                    </li>
-                </ul>
-            </section> -->
-
-        <!-- <section class="slider-container">
-            <section class="slider-pictures2">
-                <img src="images/slider-1.jpg" alt="image1" class="slider-picture">
-                <img src="images/slider-2.jpg" alt="image2" class="slider-picture">
-                <img src="images/slider-3.jpg" alt="image3" class="slider-picture">
-                <img src="images/slider-4.jpg" alt="image3" class="slider-picture">
-                <img src="images/slider-5.jpg" alt="image3" class="slider-picture">
-                <img src="images/slider-6.jpg" alt="image3" class="slider-picture">
-                <img src="images/slider-7.jpg" alt="image3" class="slider-picture">
-                <img src="images/slider-8.jpg" alt="image3" class="slider-picture">
-            </section>
-            <section class="button">
-                <button id="button-left2">&#10094;</button>
-                <button id="button-right2">&#10095;</button>
-            </section>
-        </section> -->
+      <div class="content-container">      
         <!-- Ski Section -->
         <section id="ski" class="sticky-block">
           <div class="sticky-block__main">
             <div class="sticky-block__main-img">
-              <img src="./images/ski_main.webp" alt="Ski at Valais" width="1216" >
+              <img src="./images/randoParc-CransMontana.webp" alt="Ski at Valais" width="1216" >
             </div>
             <div class="sticky-block__main-content">
               <h2>Ski Resorts</h2>
-              <p>Dive into the exhilarating slopes of Valais, where powdery snow and stunning Alpine vistas await. Whether you’re a seasoned pro or a beginner, our top resorts offer an unforgettable experience.</p>
+              <p>Dive into the exhilarating slopes of Valais, where powdery snow and stunning Alpine vistas await. Whether you&#39;re a seasoned pro or a beginner, our top resorts offer an unforgettable experience.</p>
             </div>
           </div>
           <div class="sticky-block__wrapper slider-container">
@@ -95,8 +64,7 @@
                 <p class="sticky-block__add-text">
                   Renowned for its extensive slopes and vibrant après-ski scene,
                 Verbier offers a range of runs for all levels.
-                <a href="#">Explore Verbier</a> and book your stay through our
-                integrated booking system.
+                <br><a href="#map" onclick="ownMap(geojson.features[0])" data-title="Verbier">Find on the map</a>
                 </p>
               </li>
               <li class="sticky-block__add-item slider-picture">
@@ -109,8 +77,7 @@
                 <p class="sticky-block__add-text">
                   Offering panoramic views and sun-soaked slopes, Crans-Montana is
                 perfect for families and expert skiers alike.
-                <a href="#">Discover Crans-Montana</a> and secure your ski pass
-                with our easy booking option.
+                <br><a href="#map" onclick="ownMap(geojson.features[1])"  data-title="Crans Montana">Find on the map</a>
                 </p>
               </li>
               <li class="sticky-block__add-item slider-picture">
@@ -118,13 +85,12 @@
                   Zermatt
                 </h5>
                 <div class="sticky-block__add-img">
-                  <img src="./images/https___www.myswitzerland.com_-_media_celum connect_2024_07_03_14_44_26_rothorn-zermatt-gondola.jpg" alt="" width="800">
+                  <img src="./images/zermatt-gondola.jpg" alt="Zermatt" width="800">
                 </div>
                 <p class="sticky-block__add-text">
                   Home to the iconic Matterhorn, Zermatt boasts world-class skiing
-                  and charming village life. <a href="#">Visit Zermatt</a> and
-                  plan your adventure with our direct booking feature.
-                  
+                  and charming village life.
+                  <br><a href="#map" onclick="ownMap(geojson.features[2])"  data-title="Zermatt">Find on the map</a>
                 </p>
               </li>
               <li class="sticky-block__add-item slider-picture">
@@ -132,10 +98,11 @@
                   Anzère
                 </h5>
                 <div class="sticky-block__add-img">
-                  <img src="./images/erlebniss-ski_snowboard-anzere.webp" alt="" width="800">
+                  <img src="./images/erlebniss-ski_snowboard-anzere.webp" alt="Anzère" width="800">
                 </div>
                 <p class="sticky-block__add-text">
                   There is a special ski lift and a magic carpet for children and beginners in the center of the village. 6 km of ski itinerary (marked out and not tamped) are at your disposal.
+                  <br><a href="#map" onclick="ownMap(geojson.features[9])"  data-title="Anzère">Find on the map</a>
                 </p>
               </li>
               <li class="sticky-block__add-item slider-picture">
@@ -143,10 +110,11 @@
                   Moosalpregion
                 </h5>
                 <div class="sticky-block__add-img">
-                  <img src="./images/https___www.myswitzerland.com_-_media_celum connect_2024_07_03_14_44_26_rothorn-zermatt-gondola.jpg" alt="" width="800">
+                  <img src="./images/moosalp.jpg" alt="Moosalpregion" width="800">
                 </div>
                 <p class="sticky-block__add-text">
-                  Ski tourers will love exploring the area with routes ranging from easy to moderate. For our youngest visitors, MoosAlbi’s Kids’ Paradise provides the ideal setting to take their first turns in the sparkling snow.
+                  Ski tourers will love exploring the area with routes ranging from easy to moderate. For our youngest visitors, MoosAlbi&#39;s Kids&#39; Paradise provides the ideal setting to take their first turns in the sparkling snow.
+                  <br><a href="#map" onclick="ownMap(geojson.features[12])" data-title="Moosalpregion">Find on the map</a>
                 </p>
               </li>
             
@@ -165,7 +133,7 @@
             </div>
             <div class="sticky-block__main-content sticky-block__main-content--white">
               <h2>Spa</h2>
-              <p>Unwind and rejuvenate in Valais’ luxurious spas. From natural thermal springs to modern wellness centers, immerse yourself in tranquility and pampering.</p>
+              <p>Unwind and rejuvenate in Valais&#39; luxurious spas. From natural thermal springs to modern wellness centers, immerse yourself in tranquility and pampering.</p>
             </div>
           </div>
           <div class="sticky-block__wrapper slider-container">
@@ -179,9 +147,8 @@
                 </div>
                 <p class="sticky-block__add-text">
                   Nestled in the mountains, Ovronnaz offers a tranquil spa
-                        experience with natural thermal waters.
-                        <a href="#">Relax in Ovronnaz</a> and reserve your spa day
-                        online.
+                  experience with natural thermal waters.
+                  <br><a href="#map" onclick="ownMap(geojson.features[3])"  data-title="Ovronnaz">Find on the map</a>
                 </p>
               </li>
               <li class="sticky-block__add-item slider-picture">
@@ -193,9 +160,8 @@
                 </div>
                 <p class="sticky-block__add-text">
                   Famous for its vast thermal baths, Leukerbad is the perfect
-                            destination for rejuvenation.
-                            <a href="#">Experience Leukerbad</a> and book your thermal
-                            retreat through our site.
+                  destination for rejuvenation.
+                  <br><a href="#map" onclick="ownMap(geojson.features[4])"  data-title="Leukerbad">Find on the map</a>
                 </p>
               </li>
               <li class="sticky-block__add-item slider-picture">
@@ -207,8 +173,7 @@
                 </div>
                 <p class="sticky-block__add-text">
                   Known for its peaceful ambiance and therapeutic waters, Saillon offers a serene spa experience.
-                  <a href="#">Unwind in Saillon</a>.
-                  
+                  <br><a href="#map" onclick="ownMap(geojson.features[5])" data-title="Saillon">Find on the map</a>
                 </p>
               </li>
               <li class="sticky-block__add-item slider-picture">
@@ -219,7 +184,8 @@
                   <img src="./images/Lavey_spa.jpg" alt="Bains de Lavey Thermal Spa" width="800">
                 </div>
                 <p class="sticky-block__add-text">
-                  Lavey is home to one of Switzerland’s hottest thermal springs, with water emerging from the source at an impressive 69°C. Visitors can soak in the soothing, health-enhancing properties of the thermal waters at the renowned spas of Lavey.
+                  Lavey is home to one of Switzerland&#39;s hottest thermal springs, with water emerging from the source at an impressive 69°C. Visitors can soak in the soothing, health-enhancing properties of the thermal waters at the renowned spas of Lavey.
+                  <br><a href="#map" onclick="ownMap(geojson.features[10])"  data-title="Bains de Lavey Thermal Spa">Find on the map</a>
                 </p>
               </li>
             </ul>
@@ -238,8 +204,7 @@
             </div>
             <div class="sticky-block__main-content sticky-block__main-content--white">
               <h2>Hiking Routes</h2>
-              <p>Explore the breathtaking trails of Valais. From gentle walks through picturesque vineyards to challenging mountain ascents, there’s a path for every adventurer.</p> 
-              <ul>
+              <p>Explore the breathtaking trails of Valais. From gentle walks through picturesque vineyards to challenging mountain ascents, there&#39;s a path for every adventurer.</p> 
             </div>
           </div>
           <div class="sticky-block__wrapper sticky-block__wrapper--left  slider-container">
@@ -253,8 +218,8 @@
                 </div>
                 <p class="sticky-block__add-text">
                   Embark on a breathtaking hike along the largest glacier in the
-                Alps. <a href="#">Discover the Aletsch Glacier</a> and book
-                guided tours through our platform.
+                Alps. 
+                <br><a href="#map" onclick="ownMap(geojson.features[6])"  data-title="Aletsch Glacier">Find on the map</a>
                 </p>
               </li>
               <li class="sticky-block__add-item slider-picture">
@@ -267,8 +232,7 @@
                 <p class="sticky-block__add-text">
                   Explore the serene beauty of Val de Réchy, a hidden gem with
                 lush landscapes and diverse wildlife.
-                <a href="#">Experience Val de Réchy</a> and reserve your hiking
-                adventure with us.
+                <br><a href="#map" onclick="ownMap(geojson.features[8])"  data-title="Vallon de Réchy">Find on the map</a>
                 </p>
               </li>
               <li class="sticky-block__add-item slider-picture">
@@ -281,8 +245,7 @@
                 <p class="sticky-block__add-text">
                   Wander along the historic Bisse du Rô, a scenic irrigation
                 channel offering stunning views of the Valais region.
-                <a href="#">Explore Bisse du Rô</a> and arrange your hike
-                through our booking system.
+                <br><a href="#map" onclick="ownMap(geojson.features[7])"  data-title="Bisse du Rô">Find on the map</a>
                 </p>
               </li>
               <li class="sticky-block__add-item slider-picture">
@@ -294,6 +257,7 @@
                 </div>
                 <p class="sticky-block__add-text">
                   At the heart of the Binntal Landscape Park lies the enchanting Binntal valley, often called the Sleeping Beauty that inspired the park's name. Just 50 years ago, this serene valley was completely isolated from the outside world each winter by heavy snowfall.
+                  <br><a href="#map" onclick="ownMap(geojson.features[11])"  data-title="Binntal Landscape Park">Find on the map</a>
                 </p>
               </li>
             </ul>
@@ -317,14 +281,10 @@
     <footer>Powercoders 2024</footer>
     <svg width="1021" height="7020" viewBox="0 0 1021 7020" fill="none" xmlns="http://www.w3.org/2000/svg" class="squiggle">
       <path d="M44.2806 10.0516C126.27 5.95613 70.0205 246.931 193.731 339.324C348.37 454.815 504.042 383.555 541.404 293.455C578.767 203.356 398.182 118.171 344.214 199.26C292.946 276.293 441.771 410.585 335.911 566.211C308.872 605.962 98.2491 709.551 128.347 825.042C158.444 940.533 429.317 1038.82 450.074 756.239C470.831 473.654 -623.102 1396.71 798.741 1243.54C1069.62 1190.3 1193.33 540.604 442.761 1136.24C-495.448 1880.79 342.139 2915.35 636.886 2379.67C931.633 1843.98 485.317 1959.42 218.592 2448.42C5.21173 2839.61 -22.2392 3567.19 106.453 3647.51C354.497 3802.32 636.491 3633.64 798.741 3633.64C799.285 3633.68 936.869 3646.44 937.406 3646.49C1124.14 3665.4 860.666 3997.24 740.622 4130.37C599.475 4274.8 561.283 4499.25 491.54 4347.88C404.361 4158.67 742.749 4046.45 723.03 4342.14C707.255 4578.7 388.452 4821.88 218.592 5013C143.867 5098.73 410.38 5377.96 691.843 5327.51C1043.67 5264.44 781.66 5043.61 636.886 4965C106.453 4677 -300.286 5313.58 335.911 5693.64C844.869 5997.68 1557.73 7010 335.911 7010" stroke="#FF0000" stroke-width="20" stroke-linejoin="round" stroke-linecap="round"/>
-      </svg>
-         
-      
+    </svg>
+   
+    <footer>&#169; Powercoders 2024</footer>
     <script src="js/main.js"></script>
-    <script src="js/wow.min.js"></script>
     <script src="js/map.js"></script>
-    <script>
-      new WOW().init();
-    </script>
   </body>
 </html>

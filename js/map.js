@@ -242,3 +242,12 @@ function addMarker(feature) {
 // Adding markers from the geojson data
 geojson.features.forEach(addMarker);
 
+function ownMap(feature) {
+  map.flyTo({
+      center: feature.geometry.coordinates,
+      zoom: 12,
+      essential: true // this ensures the animation is always smooth
+  });
+
+}
+

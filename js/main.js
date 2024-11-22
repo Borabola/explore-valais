@@ -1,4 +1,4 @@
-const accordionItems = document.querySelectorAll(".accordion-item");
+const navBtnContainer = document.querySelector(".btn-container");
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -29,7 +29,6 @@ sliderPicturesList.forEach((sliderPictures) => {
         sliderPictures.classList.add("sliding-transition");
         prevIndex = currentIndex;
         currentIndex = (currentIndex + 1) % totalPictures;
-        console.log("currentIndex", currentIndex)
         sliderPictures.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
     });
 
@@ -60,3 +59,19 @@ const scroll = () => {
 scroll();
 window.addEventListener("scroll", scroll);
 // svg settings ends here
+=======
+if (navBtnContainer) {
+    window.addEventListener("scroll", function() {
+        let isFirstScreen = !navBtnContainer.classList.contains("short-nav"); 
+
+        if (window.scrollY >= 250 && isFirstScreen) {
+            isFirstScreen = false;
+            navBtnContainer.classList.add("short-nav");
+        }
+    
+        if (window.scrollY < 250 && !isFirstScreen) {
+            isFirstScreen = true;
+            navBtnContainer.classList.remove("short-nav");
+        }
+    });
+}
