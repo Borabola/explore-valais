@@ -59,7 +59,7 @@ const scroll = () => {
 scroll();
 window.addEventListener("scroll", scroll);
 // svg settings ends here
-=======
+
 if (navBtnContainer) {
     window.addEventListener("scroll", function() {
         let isFirstScreen = !navBtnContainer.classList.contains("short-nav"); 
