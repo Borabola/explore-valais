@@ -231,7 +231,7 @@ function addMarker(feature) {
           // Update weather card
           card.style.display = "block";
           document.getElementById("card-location").textContent = `Location: ${feature.properties.title}`;
-          document.getElementById("card-temperature").textContent = `Temperature: ${data.main.temp}°C`;
+          document.getElementById("card-temperature").textContent = `Temperature: ${Math.round(data.main.temp)}°C`;
           document.getElementById("card-description").textContent = `Condition: ${data.weather[0].description}`;
         } catch (error) {
           console.error("Error:", error);
