@@ -429,7 +429,11 @@ h4 {
     align-items: center;
     padding-top: 10px;
     padding-bottom: 20px;
-    background: linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.2));
+    background-image: url(/images/slider-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+
 
     @media only screen and (min-width: 768px) {
         padding-top: 20px;
@@ -438,6 +442,9 @@ h4 {
     @media only screen and (min-width: 1024px) {
         padding-top: 30px;
     }
+}
+.hero h1 {
+    background: rgba(68, 71, 157, 0.7);
 }
 
 .hero img {
@@ -454,9 +461,18 @@ h4 {
 }
 
 .intro {
-    min-height: 200px;
+    min-height: 50px;
     display: flex;
     align-items: center;
+    background-color: #efeeee;
+    margin: 0 0 20px 0;
+    @media only screen and (min-width: 768px) {
+        min-height: 100px;
+    }
+
+    @media only screen and (min-width: 1024px) {
+        min-height: 200px;
+    }
 }
 
 .content-container {
@@ -777,15 +793,41 @@ h4 {
 /* svg settings starts here */
 svg.squiggle {
     position: absolute;
-    top: 0;
-    left: 0;
+
     width: 100vw;
-    height: 453vh;
+    height: 200vw;
     z-index: -1;
+    @media only screen and (min-width: 768px) {
+        width: 100vw;
+        height: 400vw;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        width: 100vw;
+        height: 220vw;
+    }
 }
 
 svg.squiggle path {
+    stroke: rgb(95, 141, 232);
+}
 
-    stroke-width: 4%;
+svg.squiggle1 {
+    position: absolute;
+
+    width: 100vw;
+    height: 200vw;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 50%;
+    @media only screen and (min-width: 768px) {
+        width: 100vw;
+        height: 200vw;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        width: 100vw;
+        height: 150vw;
+    }
 }
 /* svg settings ends here */
