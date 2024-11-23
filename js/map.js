@@ -167,9 +167,9 @@ const geojson = {
 
 
 const map = new mapboxgl.Map({
-    container: 'map', // container ID
-    center: [7.5449, 46.2200], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-    zoom: 8 // starting zoom
+    container: 'map',
+    center: [7.5449, 46.2200],
+    zoom: 8 
 });
 
 map.on('load', function() {
@@ -222,31 +222,48 @@ function addMarker(feature) {
         const lon = feature.geometry.coordinates[0];
         const apiKey = "9d9a675927f38801a9f5c438b11b1c3b";
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=en&appid=${apiKey}`;
-      
+        
         try {
           const response = await fetch(url);
           if (!response.ok) throw new Error("Failed to fetch data!");
           const data = await response.json();
       
-          // Update weather card
+          // background
+          const weatherCondition = data.weather[0].main.toLowerCase();
+          const cardContent = document.getElementById("card-content");
+          if (weatherCondition.includes("cloud")) {
+            cardContent.style.background = "linear-gradient(135deg, #2c3e50, #bdc3c7)";
+          } else if (weatherCondition.includes("rain")) {
+            cardContent.style.background = "linear-gradient(135deg, #4b79a1, #283e51)";
+          } else if (weatherCondition.includes("clear")) {
+            cardContent.style.background = "linear-gradient(135deg, #ff8008, #ffc837)";
+          } else {
+            cardContent.style.background = "linear-gradient(135deg, #2193b0, #6dd5ed)";
+          }
+      
+  
           card.style.display = "block";
-          document.getElementById("card-location").textContent = `Location: ${feature.properties.title}`;
+          document.getElementById("card-location").textContent = `${feature.properties.title}`;
           document.getElementById("card-temperature").textContent = `Temperature: ${Math.round(data.main.temp)}°C`;
           document.getElementById("card-description").textContent = `Condition: ${data.weather[0].description}`;
+          document.getElementById("card-wind").textContent = `Wind Speed: ${data.wind.speed} m/s`;
+          document.getElementById("card-humidity").textContent = `Humidity: ${data.main.humidity}%`;
+      
+          cardContent.classList.add('show');
         } catch (error) {
           console.error("Error:", error);
         }
-      });
+      });      
 }
 
-// Adding markers from the geojson data
+
 geojson.features.forEach(addMarker);
 
 function ownMap(feature) {
   map.flyTo({
       center: feature.geometry.coordinates,
       zoom: 12,
-      essential: true // this ensures the animation is always smooth
+      essential: true
   });
 
 }
