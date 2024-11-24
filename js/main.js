@@ -1,4 +1,5 @@
 const navBtnContainer = document.querySelector(".btn-container");
+const sliderPicturesList = document.querySelectorAll(".slider-pictures");
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -11,34 +12,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // slider animation starts here
-
-const sliderPicturesList = document.querySelectorAll(".slider-pictures");
-
-sliderPicturesList.forEach((sliderPictures) => {
-    const buttonLeft = sliderPictures.nextElementSibling.querySelector(".button-left");
-    const buttonRight = sliderPictures.nextElementSibling.querySelector(".button-right");
-    let slideWidth = sliderPictures?.querySelector(".slider-picture")?.offsetWidth + 20;
-    const totalPictures = sliderPictures.children.length;
-
-    let currentIndex = 0;
-    let prevIndex;
-
-    window.addEventListener("resize", () => slideWidth = sliderPictures?.querySelector(".slider-picture")?.offsetWidth + 20);
-
-    buttonRight.addEventListener("click", () => {
-        sliderPictures.classList.add("sliding-transition");
-        prevIndex = currentIndex;
-        currentIndex = (currentIndex + 1) % totalPictures;
-        sliderPictures.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-    });
-
-    buttonLeft.addEventListener("click", () => {
-        prevIndex = currentIndex;
-        currentIndex = (currentIndex - 1 + totalPictures) % totalPictures;
-        sliderPictures.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-    });
-})
-
+if (sliderPicturesList) {
+    sliderPicturesList.forEach((sliderPictures) => {
+        const buttonLeft = sliderPictures.nextElementSibling.querySelector(".button-left");
+        const buttonRight = sliderPictures.nextElementSibling.querySelector(".button-right");
+        let slideWidth = sliderPictures?.querySelector(".slider-picture")?.offsetWidth + 20;
+        const totalPictures = sliderPictures.children.length;
+    
+        let currentIndex = 0;
+        let prevIndex;
+    
+        window.addEventListener("resize", () => slideWidth = sliderPictures?.querySelector(".slider-picture")?.offsetWidth + 20);
+    
+        buttonRight.addEventListener("click", () => {
+            sliderPictures.classList.add("sliding-transition");
+            prevIndex = currentIndex;
+            currentIndex = (currentIndex + 1) % totalPictures;
+            sliderPictures.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+        });
+    
+        buttonLeft.addEventListener("click", () => {
+            prevIndex = currentIndex;
+            currentIndex = (currentIndex - 1 + totalPictures) % totalPictures;
+            sliderPictures.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+        });
+    })
+}
 // slider animation ends here
 
 // svg settings starts here
